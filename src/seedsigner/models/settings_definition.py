@@ -161,6 +161,8 @@ class SettingsConstants:
     WORDLIST_LANGUAGE__JAPANESE = "jp"
     WORDLIST_LANGUAGE__KOREAN = "kr"
     WORDLIST_LANGUAGE__PORTUGUESE = "pt"
+    WORDLIST_LANGUAGE__CATALAN = "ca"
+    WORDLIST_LANGUAGE__SPANISH = "es"
     ALL_WORDLIST_LANGUAGES = [
         (WORDLIST_LANGUAGE__ENGLISH, "English"),
         # (WORDLIST_LANGUAGE__CHINESE_SIMPLIFIED, "简体中文"),
@@ -170,6 +172,8 @@ class SettingsConstants:
         # (WORDLIST_LANGUAGE__JAPANESE, "日本語"),
         # (WORDLIST_LANGUAGE__KOREAN, "한국어"),
         # (WORDLIST_LANGUAGE__PORTUGUESE, "Português"),
+        (WORDLIST_LANGUAGE__CATALAN, "Català"),
+        (WORDLIST_LANGUAGE__SPANISH, "Español"),
     ]
 
     

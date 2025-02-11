@@ -9,6 +9,8 @@ from embit.networks import NETWORKS
 from typing import List
 
 from seedsigner.models.settings import SettingsConstants
+from seedsigner.resources.bip39Wordlist.catalan_wordlist import WORDLIST as WORDLIST_CAT
+
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +24,7 @@ class Seed:
     def __init__(self,
                  mnemonic: List[str] = None,
                  passphrase: str = "",
-                 wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__ENGLISH) -> None:
+                 wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__CATALAN) -> None:
         self._wordlist_language_code = wordlist_language_code
 
         if not mnemonic:
@@ -37,10 +39,14 @@ class Seed:
 
 
     @staticmethod
-    def get_wordlist(wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__ENGLISH) -> List[str]:
+    def get_wordlist(wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__CATALAN) -> List[str]:
         # TODO: Support other BIP-39 wordlist languages!
         if wordlist_language_code == SettingsConstants.WORDLIST_LANGUAGE__ENGLISH:
             return bip39.WORDLIST
+        elif wordlist_language_code == SettingsConstants.WORDLIST_LANGUAGE__CATALAN:
+            return WORDLIST_CAT
+        elif wordlist_language_code == SettingsConstants.WORDLIST_LANGUAGE__SPANISH:
+            return spanish_wordlist.WORDLIST
         else:
             raise Exception(f"Unrecognized wordlist_language_code {wordlist_language_code}")
 

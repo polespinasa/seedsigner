@@ -19,7 +19,7 @@ DICE__NUM_ROLLS__24WORD = 99
 
 
 
-def calculate_checksum(mnemonic: list | str, wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__ENGLISH) -> list[str]:
+def calculate_checksum(mnemonic: list | str, wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__CATALAN) -> list[str]:
     """
         Provide 12- or 24-word mnemonic, returns complete mnemonic w/checksum as a list.
 
@@ -56,7 +56,7 @@ def calculate_checksum(mnemonic: list | str, wordlist_language_code: str = Setti
 
 
 
-def generate_mnemonic_from_bytes(entropy_bytes, wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__ENGLISH) -> list[str]:
+def generate_mnemonic_from_bytes(entropy_bytes, wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__CATALAN) -> list[str]:
     return bip39.mnemonic_from_bytes(entropy_bytes, wordlist=Seed.get_wordlist(wordlist_language_code)).split()
 
 
@@ -115,7 +115,7 @@ def get_partial_final_word(coin_flips: str, wordlist_language_code: str = Settin
 
 # Note: This currently isn't being used since we're now chaining hashed bytes for the
 #   image-based entropy and aren't just ingesting a single image.
-def generate_mnemonic_from_image(image, wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__ENGLISH) -> list[str]:
+def generate_mnemonic_from_image(image, wordlist_language_code: str = SettingsConstants.WORDLIST_LANGUAGE__CATALAN) -> list[str]:
     import hashlib
     hash = hashlib.sha256(image.tobytes())
 
